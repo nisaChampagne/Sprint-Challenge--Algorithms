@@ -92,6 +92,7 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
     def sort(self):
         """
         Sort the robot's list.
@@ -117,60 +118,67 @@ class SortingRobot:
         * You may define robot helper methods, as long as they follow all the rules.
         '''
         '''
+        Insertion sort?
+
         start with index 0, grab first item
-        move right
-        compare
-          if current is greater / == 1
-            swap
-            move left
-            set light on ( wont be fully sorted without this)
-            swap(so you can carry None)
+        while True:
             move right
-            repeat
-          else
-            move left
-            swap
-            move right
-            repeat
+            compare
+            if current is greater / == 1
+                swap
+                move left
+                set light on ( wont be fully sorted without this)
+                swap(so you can carry None)
+                move right
+                repeat
+            else
+                move left
+                swap
+                move right
+                repeat
+        swap
+
         """
         '''
         self.swap_item()
         #Pick up the first item
+        while True: ## running til break
 
-        while self.can_move_right():
-        #sort and loop through until robot reaches the end of the list
+            while self.can_move_right():
+            #sort and loop through until robot reaches the end of the list
 
-            self.move_right()
-
-            if self.compare_item() == 1:
-            #if item greater,swap
-
-                self.swap_item()
-                self.move_left()
-                self.set_light_on()
-                self.swap_item()
                 self.move_right()
-                self.swap_item()
-            else:
-            #if not put it back
 
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-                self.swap_item()
-        self.swap_item()
-        #put the item down
+                if self.compare_item() == 1:
+                #if item greater,swap
 
-        if self.light_is_on():
-        # if swap happens loop again
+                    self.swap_item()
+                    self.move_left()
+                    self.set_light_on()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                else:
+                #if not put it back
 
-            self.set_light_off()
-            while self.can_move_left():
-            #move robot back to the the start
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+            self.swap_item()
+            #put the item down
 
-                self.move_left()
-            self.sort()
-            #repeat until everting is sorted
+            if self.light_is_on():
+            # if swap happens loop again
+
+                self.set_light_off()
+                while self.can_move_left():
+                #move robot back to the the start
+
+                    self.move_left()
+                self.sort()
+                #repeat until everting is sorted
+            break
 
 
 if __name__ == "__main__":
