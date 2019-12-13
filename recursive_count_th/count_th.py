@@ -5,7 +5,7 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 
 #! used  logical operators  to accomplish. tests pass
-def count_th(word, count = 0):
+def count_th(word):
     count = 0
     word_looking_for = "th"
     th_length = 2
