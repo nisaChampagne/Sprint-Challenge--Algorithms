@@ -6,7 +6,7 @@ Your function must utilize recursion. It cannot contain any loops.
 def count_th(word):
     word_looking_for = "th"
     if len(word) < 2:
-        return "Length of word cannot be less than 2"
+        return 0
     if word[:2] == word_looking_for:
     ## if word[ from index0 - 2] contains "th"
         return count_th(word[1:]) +1
@@ -19,7 +19,11 @@ def count_th(word):
 w_1 = "abcthxyz"   #1 occurences
 w_2 = "abcthefthghith" # 3 occurences
 w_3 = "thhtthht" #2 occurences
+w_4 = "t" #0 occurences
+w_5 = "th" # 1
 
 print(count_th(w_1))
 print(count_th(w_2))
 print(count_th(w_3))
+print(count_th(w_4))
+print(count_th(w_5))
