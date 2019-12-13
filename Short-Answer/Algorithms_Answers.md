@@ -44,23 +44,30 @@ o(n)
 
 ## Exercise II
 
+## Questions?
+  How many eggs do we have at our disposal? 
+  Are we dropping eggs of each floor, each time?
+
+## Notes
 ---binary search would be useful here(runtime of o(log n) as steps are reduced as more floors are added)
 --assuming we have all the eggs from walmart.
 -building has already sorted floors so cool
 -Cut this problem into above, below, and middle.
 
-  ## IDEAS TO START ON
-  def eggs(n):
-  n for floors starting at 1
-  above = len(n) -1
-  below= 0
-  middle = (above + below) //2
-  if n <= 0:
-    return None
-  egg_broken = False
+## input
+f = highest floor w/ no egg breaking
+n = list of floors in order 
 
-  ## STEPS
-  Go to middle as starting point
-  if egg breaks, count out floors above
-  else if doesnt break, count out all floors below
-  keep iterating through until highest floor, f,  where the egg would not break
+## STEPS
+-Store highest floor,f, where the egg would not break
+-below = 0
+-above = len(n) -1
+-Go to middle as starting point (below + above) // 2
+-If egg breaks:
+ rule out floors above because those are going to be scrambled eggs
+-Else if doesnt break:
+ rule out all floors below (Could keep going up if indeed have plenty of eggs )
+-Keep iterating through until highest floor, f,  where the egg would not break
+-store floor num in variable f
+-Return highest floor, f
+
