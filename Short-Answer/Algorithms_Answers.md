@@ -9,8 +9,9 @@ o(1)
 o(n^3)
 o(n^2)
 
-n^3 but runs n^2 everytime.the rate of growth would be just o(n)
-linear time
+-only 1 loop of iterations
+-n^3 but gets n^2 update everytime.
+-the rate of growth would be just: o(n) linear time
 
 
 
@@ -38,13 +39,25 @@ c)  def bunnyEars(bunnies):
 o(1) base case
 o(n)
 
-loops one bunny at a time until 0:  o(n)
-a crazy long list of bunnies will call to bunnyEars to run bunnies-1 every time until list reaches 0
+-function is called recursively n times before base case is reached:  o(n) Linear time
+-a crazy long list of bunnies will call to bunnyEars to run bunnies-1 every time until list reaches 0
 
 ## Exercise II
+
 ---binary search would be useful here(runtime of o(log n) as steps are reduced as more floors are added)
+--assuming we have all the eggs from walmart.
 -building has already sorted floors so cool
 -Cut this problem into above, below, and middle.
+
+  ## IDEAS TO START ON
+  def eggs(n):
+  n for floors starting at 1
+  above = len(n) -1
+  below= 0
+  middle = (above + below) //2
+  if n <= 0:
+    return None
+  egg_broken = False
 
   ## STEPS
   Go to middle as starting point
