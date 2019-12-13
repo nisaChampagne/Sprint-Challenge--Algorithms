@@ -117,8 +117,6 @@ class SortingRobot:
         * You may define robot helper methods, as long as they follow all the rules.
         '''
         '''
-        yay bubble sort more or less
-
         start with index 0, grab first item
         move right
         compare
