@@ -92,12 +92,93 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        '''
+        CAPABILITIES
+        * It can move left or right.
+        * It can pick up an item
+        * If it tries to pick up an item while already holding one, it will swap the items instead.
+        * It can compare the item it's holding to the item in front of it.
+        * It can switch a light on its head on or off.
+
+
+        RULES
+        * You may use any pre-defined robot methods.
+        * You may NOT modify any pre-defined robot methods.
+        * You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
+        * You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+        * You may use iterators. (`while`, `for`, `break`, `continue`)
+        * You may NOT store any variables. (`=`)
+        * You may NOT access any instance variables directly. (`self._anything`)
+        * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
+        * You may define robot helper methods, as long as they follow all the rules.
+        '''
+        '''
+        Insertion sort?
+
+        start with index 0, grab first item
+        while True:
+            move right
+            compare
+            if current is greater / == 1
+                swap
+                move left
+                set light on ( wont be fully sorted without this)
+                swap(so you can carry None)
+                move right
+                repeat
+            else
+                move left
+                swap
+                move right
+                repeat
+        swap
+
+        """
+        '''
+        self.swap_item()
+        #Pick up the first item
+        while True: ## running til break
+
+            while self.can_move_right():
+            #sort and loop through until robot reaches the end of the list
+
+                self.move_right()
+
+                if self.compare_item() == 1:
+                #if item greater,swap
+
+                    self.swap_item()
+                    self.move_left()
+                    self.set_light_on()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+                else:
+                #if not put it back
+
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.swap_item()
+            self.swap_item()
+            #put the item down
+
+            if self.light_is_on():
+            # if swap happens loop again
+
+                self.set_light_off()
+                while self.can_move_left():
+                #move robot back to the the start
+
+                    self.move_left()
+                self.sort()
+                #repeat until everting is sorted
+            break
 
 
 if __name__ == "__main__":
